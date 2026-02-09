@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c5cff"/>
+      <stop offset="100%" style="stop-color:#5ce0d8"/>
+    </linearGradient>
+    <linearGradient id="ear" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5e6d3"/>
+      <stop offset="100%" style="stop-color:#e8d5c0"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bg)"/>
+  
+  <!-- Left floppy ear (Holland Lop style - drooping down) -->
+  <ellipse cx="155" cy="280" rx="45" ry="95" fill="url(#ear)" stroke="#d4c4b0" stroke-width="3" transform="rotate(-20 155 280)"/>
+  <ellipse cx="155" cy="280" rx="25" ry="70" fill="#f0c4b8" transform="rotate(-20 155 280)"/>
+  
+  <!-- Right floppy ear (Holland Lop style - drooping down) -->
+  <ellipse cx="357" cy="280" rx="45" ry="95" fill="url(#ear)" stroke="#d4c4b0" stroke-width="3" transform="rotate(20 357 280)"/>
+  <ellipse cx="357" cy="280" rx="25" ry="70" fill="#f0c4b8" transform="rotate(20 357 280)"/>
+  
+  <!-- Head -->
+  <ellipse cx="256" cy="240" rx="105" ry="95" fill="url(#ear)" stroke="#d4c4b0" stroke-width="3"/>
+  
+  <!-- Cheeks (Holland Lops have chubby cheeks) -->
+  <ellipse cx="205" cy="260" rx="40" ry="35" fill="#f5e6d3"/>
+  <ellipse cx="307" cy="260" rx="40" ry="35" fill="#f5e6d3"/>
+  
+  <!-- Body -->
+  <ellipse cx="256" cy="340" rx="80" ry="60" fill="url(#ear)" stroke="#d4c4b0" stroke-width="3"/>
+  
+  <!-- Eyes -->
+  <circle cx="222" cy="225" r="16" fill="#2a1a0e"/>
+  <circle cx="290" cy="225" r="16" fill="#2a1a0e"/>
+  <circle cx="228" cy="219" r="5" fill="white"/>
+  <circle cx="296" cy="219" r="5" fill="white"/>
+  
+  <!-- Nose -->
+  <ellipse cx="256" cy="255" rx="10" ry="7" fill="#f0a0a0"/>
+  
+  <!-- Mouth -->
+  <path d="M246 262 Q256 275 266 262" fill="none" stroke="#c08080" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Whiskers -->
+  <line x1="200" y1="250" x2="160" y2="245" stroke="#c0b0a0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="200" y1="258" x2="158" y2="260" stroke="#c0b0a0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="312" y1="250" x2="352" y2="245" stroke="#c0b0a0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="312" y1="258" x2="354" y2="260" stroke="#c0b0a0" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Tiny paws -->
+  <ellipse cx="225" cy="385" rx="18" ry="12" fill="#f5e6d3" stroke="#d4c4b0" stroke-width="2"/>
+  <ellipse cx="287" cy="385" rx="18" ry="12" fill="#f5e6d3" stroke="#d4c4b0" stroke-width="2"/>
+  
+  <!-- Claw mark (subtle, on the cheek) -->
+  <text x="310" y="290" font-family="Arial" font-size="28" font-weight="bold" fill="rgba(124,92,255,0.6)" transform="rotate(15 310 290)">⚡</text>
+</svg>
