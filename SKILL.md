@@ -23,7 +23,8 @@ cp process-template.md ~/.openclaw/workspace/memory/squads/_process/standards.md
 After a sub-agent spawn completes, capture its learnings:
 ```bash
 echo "## Session summary...
-- [ROLE] Learning tagged by role" | ./squad-memory.sh write my-squad -
+- [AGENT1] Learning tagged by role
+- [AGENT2] Another agent's learning" | ./squad-memory.sh write my-squad -
 ```
 
 ### 3. Read memory before spawning
@@ -38,10 +39,10 @@ Prepend the output to your spawn task prompt.
 ./squad-memory.sh read my-squad --task "architecture design" --tokens 500
 
 # Role-filtered — for solo-agent spawns
-./squad-memory.sh read my-squad --role kaito --tokens 300
+./squad-memory.sh read my-squad --role agent1 --tokens 300
 
 # Combined
-./squad-memory.sh read my-squad --role kaito --task "native host" --tokens 400
+./squad-memory.sh read my-squad --role agent1 --task "native host" --tokens 400
 ```
 
 ## Commands
@@ -71,12 +72,12 @@ Prepend the output to your spawn task prompt.
 Sub-agents write learnings with role tags:
 ```markdown
 ## Session Memory
-- [VERA] Business insight
-- [KAITO] Technical learning
+- [ARCHITECT] Technical architecture insight
+- [ANALYST] Business analysis finding
 - [ALL] Cross-cutting pattern
 ```
 
-Role names are customizable — use whatever roles your squad has.
+Role names are customizable — use whatever roles your squad has. The system dynamically discovers role tags from your history.
 
 ## Orchestrator Protocol
 
@@ -101,8 +102,17 @@ Role names are customizable — use whatever roles your squad has.
 - **Auto-distill:** Semantic memory extracted every 3 sessions
 - **Auto-archive:** Flush and compress archive before destructive ops
 - **Token budget split:** 150 process + 200 program + 150 episodic = 500
+- **Dynamic role discovery:** Role tags are extracted from history automatically
 
 ## Requirements
 
 - Bash 4.0+ (macOS: `brew install bash`)
 - OpenClaw with sub-agent support (`sessions_spawn`)
+
+## Security
+
+The script validates all inputs to prevent:
+- Path traversal attacks (squad IDs restricted to alphanumeric, hyphens, underscores)
+- Command injection (all variable expansions properly quoted)
+- Race conditions (uses `mktemp` for temporary files)
+- Invalid numeric inputs (validates positive integers for --tokens, --limit, --days)

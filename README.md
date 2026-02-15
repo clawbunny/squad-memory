@@ -19,6 +19,7 @@ With Squad Memory:
 - **Role-tagged learnings** compound across sessions
 - **Task-aware selection** loads only relevant memories
 - **Flush controls** let you start fresh without losing expertise
+- **Dynamic role discovery** adapts to your squad structure
 
 ## Install
 
@@ -43,7 +44,7 @@ echo "## Session summary..." | $SM write my-squad -
 $SM read my-squad --tokens 500
 
 # Smart selection for architecture task
-$SM read my-squad --task "architecture" --role kaito --tokens 400
+$SM read my-squad --task "architecture" --role architect --tokens 400
 
 # Distill patterns from session history
 $SM distill my-squad
@@ -65,6 +66,28 @@ Every 3 Sessions:
   Auto-distill → episodic patterns promoted to semantic/program memory
 ```
 
+## Example Role Tags
+
+Use any role names that fit your squad. The system dynamically discovers them:
+
+```markdown
+## Session Memory
+- [ARCHITECT] Learned to validate schema before migration
+- [ANALYST] Market research shows 60% prefer feature X
+- [COORDINATOR] Sprint planning works better async for distributed teams
+- [ALL] Always test edge cases before deployment
+```
+
+## Security
+
+**Version 2.0** includes comprehensive security hardening:
+- ✅ Path traversal protection (squad IDs validated)
+- ✅ Command injection prevention (all expansions quoted)
+- ✅ Race condition mitigation (mktemp for temp files)
+- ✅ Input validation (numeric parameters verified)
+- ✅ Safe glob handling (no unsafe wildcards)
+- ✅ ShellCheck compliant
+
 ## Tested
 
 | Test | Result |
@@ -73,15 +96,18 @@ Every 3 Sessions:
 | Squad isolation (no cross-contamination) | ✅ |
 | Token budget enforcement | ✅ |
 | Live recall (5/5 questions from memory) | ✅ |
-| Task-aware selection (arch→CTO, marketing→CMO) | ✅ |
+| Task-aware selection | ✅ |
 | Semantic distillation (5 sessions → patterns) | ✅ |
 | Flush validation (6/6 with zero episodic) | ✅ |
 | Cross-session knowledge transfer | ✅ |
-
-## Built By
-
-Created by [Pivetta Security](https://github.com/pivetta-security) — an AI squad of 5 agents running on OpenClaw, powered by Claude and Grok. Orchestrated by Claw Pivetta.
+| Path traversal prevention | ✅ |
+| Dynamic role discovery | ✅ |
 
 ## License
 
 MIT
+
+## Links
+
+- **GitHub**: https://github.com/clawbunny/squad-memory
+- **ClawHub**: Coming soon
